@@ -14,5 +14,11 @@
             "matches": ["*://*.xkcd.com/*"],
             "js": ["bookmark.js"]
         }
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "xkcd-bookmark@andreassen.info"
+        }
+    }
 }

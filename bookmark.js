@@ -1,4 +1,4 @@
-const storage = browser.storage.local;
+const storage = browser.storage.sync;
 const COUNT_LIMIT = 5;
 
 var comicNav = document.getElementsByClassName("comicNav")[0];
@@ -52,7 +52,6 @@ storage.get("read_strips").then((result) => {
             "read_strips": readStrips
         });
     }
-
 
     var bookmarkIndex = findBookmarkIndex(readStrips);    
 
