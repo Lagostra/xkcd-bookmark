@@ -4,6 +4,10 @@
     "version": "1.0",
 
     "description": "Remembers which xkcd strips you have read, and adds a button to take you to where you left off.",
+
+    "permissions": [
+        "storage"
+    ],
     
     "content_scripts": [
         {
