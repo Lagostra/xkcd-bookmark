@@ -84,9 +84,9 @@ storage.get("read_strips").then((result) => {
     var firstUnreadButton = createButton('/' + firstUnreadIndex, '< First unread');
     var firstUnreadButton2 = createButton('/' + firstUnreadIndex, '< First unread');
 
-    comicNav.insertBefore(bookmarkButton, comicNav.children[2]);
-    comicNav2.insertBefore(bookmarkButton2, comicNav2.children[2]);
+    comicNav.insertBefore(firstUnreadButton, comicNav.children[2]);
+    comicNav2.insertBefore(firstUnreadButton2, comicNav2.children[2]);
 
-    comicNav.insertBefore(firstUnreadButton, comicNav.children[3]);
-    comicNav2.insertBefore(firstUnreadButton2, comicNav2.children[3]);
+    comicNav.insertBefore(bookmarkButton, comicNav.children[3]);
+    comicNav2.insertBefore(bookmarkButton2, comicNav2.children[3]);
 });
