@@ -34,6 +34,28 @@ function findBookmarkIndex(readStrips) {
     return 1;
 }
 
+function findFirstUnread(readStrips) {
+    for (let i = 1; i < 10000; i++) {
+        if (!readStrips.includes(i)) {
+            return i;
+        }
+    }
+
+    return '';
+}
+
+function createButton(link, text) {
+    let buttonListItem = document.createElement("li");
+    let buttonLink = document.createElement("a");
+    let linkText = document.createTextNode(text);
+
+    buttonLink.appendChild(linkText);
+    buttonLink.href = link;
+    buttonListItem.appendChild(buttonLink);
+
+    return buttonListItem;
+}
+
 storage.get("read_strips").then((result) => {
     if (result.hasOwnProperty("read_strips")) {
         readStrips = result["read_strips"];
@@ -54,15 +76,17 @@ storage.get("read_strips").then((result) => {
         });
     }
 
-    var bookmarkIndex = findBookmarkIndex(readStrips);    
+    var bookmarkIndex = findBookmarkIndex(readStrips);
+    var bookmarkButton = createButton('/' + bookmarkIndex, '< Bookmark');
+    var bookmarkButton2 = createButton('/' + bookmarkIndex, '< Bookmark');
 
-    var bookmarkListItem = document.createElement("li");
-    var bookmarkLink = document.createElement("a");
-    var linkText = document.createTextNode("< Bookmark");
-    bookmarkLink.appendChild(linkText);
-    bookmarkLink.href = "/" + bookmarkIndex;
-    bookmarkListItem.appendChild(bookmarkLink);
+    var firstUnreadIndex = findFirstUnread(readStrips);
+    var firstUnreadButton = createButton('/' + firstUnreadIndex, '< First unread');
+    var firstUnreadButton2 = createButton('/' + firstUnreadIndex, '< First unread');
 
-    comicNav.insertBefore(bookmarkListItem, comicNav.children[2]);
-    comicNav2.insertBefore(bookmarkListItem, comicNav2.children[2]);
+    comicNav.insertBefore(bookmarkButton, comicNav.children[2]);
+    comicNav2.insertBefore(bookmarkButton2, comicNav2.children[2]);
+
+    comicNav.insertBefore(firstUnreadButton, comicNav.children[3]);
+    comicNav2.insertBefore(firstUnreadButton2, comicNav2.children[3]);
 });
