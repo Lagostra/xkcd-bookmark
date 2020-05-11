@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "xkcd-bookmark",
-    "version": "1.1.1",
+    "version": "1.2.0",
 
     "description": "Remembers which xkcd strips you have read, and adds a button to take you to where you left off.",
 
@@ -23,7 +23,7 @@
 
     "browser_specific_settings": {
         "gecko": {
-            "id": "xkcd-bookmark@andreassen.info"
+            "id": "{81b38c66-885d-4c00-b019-2d0969991104}"
         }
     }
 }
